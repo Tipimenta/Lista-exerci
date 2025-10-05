@@ -498,8 +498,8 @@
 
   .service-card {
     background-color: var(--surface-color);
-    padding: 2.5rem;
-    text-align: center;
+    padding: 1.5rem;
+    text-align: justify;
     border-radius: var(--border-radius);
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
   }
@@ -531,6 +531,7 @@
   .service-card h4 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
+    text-align: center;
   }
 
   .service-card p {
