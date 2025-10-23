@@ -389,6 +389,97 @@
     color: var(--text-light);
   }
 
+
+  /* --- SEÇÃO DIFERENCIAIS (EFEITO BORDA "PINTADA" - VERSÃO FINAL) --- */
+  .diferenciais-section {
+    background: var(--white-color);
+  }
+
+  .diferenciais-grid-final {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+    perspective: 1500px;
+  }
+
+  .diferencial-card-final {
+    position: relative;
+    height: 350px;
+    border-radius: var(--border-radius);
+    background: var(--surface-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    color: var(--text-color);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    --border-width: 3px;
+    /* BORDA DE 3PX, COMO PEDIDO */
+    border: var(--border-width) solid transparent;
+
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .diferencial-card-final:hover {
+    box-shadow: var(--box-shadow);
+  }
+
+  .diferencial-card-final::before {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    inset: calc(-1 * var(--border-width));
+    border: var(--border-width) solid transparent;
+    border-radius: inherit;
+
+    background-image: radial-gradient(150px circle at var(--mouse-x, -200px) var(--mouse-y, -200px),
+        var(--primary-color) 99%,
+        /* COR AZUL, COMO PEDIDO */
+        transparent 100%);
+
+    background-attachment: fixed;
+
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .diferencial-card-final:hover::before {
+    opacity: 1;
+  }
+
+  .card-content {
+    transform: translateZ(30px);
+  }
+
+  .card-icon i {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+  }
+
+  @media (max-width: 992px) {
+    .diferenciais-grid-final {
+      grid-template-columns: 1fr;
+      perspective: none;
+    }
+
+    .diferencial-card-final {
+      transform: none !important;
+    }
+
+    .diferencial-card-final::before {
+      display: none;
+    }
+  }
+
   /* --- SEÇÃO PROPÓSITO (LAYOUT DE ABAS) --- */
   .mission-section {
     background: var(--surface-color);
@@ -406,7 +497,7 @@
   }
 
   .purpose-tabs-image {
-    height: 100%;
+    height: 250px;
   }
 
   .purpose-tabs-image i {
@@ -848,6 +939,38 @@
   .back-to-top:hover {
     background-color: var(--secondary-color);
     color: var(--primary-color-dark);
+  }
+
+  /* --- ESTILOS PARA MENSAGENS DE STATUS DO FORMULÁRIO --- */
+  #form-status {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    display: none;
+    /* Começa escondido */
+  }
+
+  #form-status.status-sending {
+    display: block;
+    background-color: #e0e7ff;
+    color: #3730a3;
+    border: 1px solid #c7d2fe;
+  }
+
+  #form-status.status-success {
+    display: block;
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+  }
+
+  #form-status.status-error {
+    display: block;
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
   }
 
   /* --- RESPONSIVIDADE --- */
