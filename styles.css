@@ -1,8 +1,8 @@
   /* --- CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
   :root {
-    --primary-color: #104861;
+    --primary-color: #0D2B4F;
     /* Azul marinho profissional */
-    --primary-color-dark: #0a3447;
+    --primary-color-dark: #0D2B4F;
     --secondary-color: #ffab00;
     /* Laranja/âmbar para destaque (CTAs) */
     --background-color: #f8f9fa;
@@ -274,14 +274,9 @@
 
   .content-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     align-items: center;
-    gap: 4rem;
-  }
-
-  .about-image img {
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    gap: 2rem;
   }
 
   .about-text .section-tag {
@@ -589,7 +584,7 @@
 
   .service-card {
     background-color: var(--surface-color);
-    padding: 1.5rem;
+    padding: 3rem;
     text-align: justify;
     border-radius: var(--border-radius);
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
@@ -1036,7 +1031,14 @@
     .hero-section {
       height: 100%;
     }
+
+    .purpose-tabs-image, .purpose-tabs-content{
+      width: 100%;
+      max-width: 60%;
+      margin: 0 auto;
+    }
   }
+
 
   @media (max-width: 576px) {
     section {
