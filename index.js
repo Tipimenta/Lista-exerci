@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
  // --- 1. EFEITO 3D TILT + BORDA ILUMINADA ---
 
  // A. Rastreador GLOBAL do mouse para o brilho na borda.
- // Este listener PODE ficar aqui, mas para garantir, vamos movê-lo para dentro.
  document.documentElement.addEventListener("pointermove", (e) => {
   document.documentElement.style.setProperty("--x", `${e.clientX}px`);
   document.documentElement.style.setProperty("--y", `${e.clientY}px`);
@@ -18,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   tiltCards.forEach((card) => {
    card.addEventListener("mousemove", (e) => {
-    if (window.innerWidth < 992) return;
+    if (window.innerWidth < 992) return; // Não executa em mobile
 
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -35,7 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
    card.addEventListener("mouseleave", () => {
     card.style.transition = "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
-    card.style.transform = `perspective(1500px) rotateX(0) rotateY(0) scale3d(1, 1, 1)`;
+    card.style.transform =
+     "perspective(1500px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";
    });
   });
  }
