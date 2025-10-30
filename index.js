@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
  // --- LÓGICA DO FORMULÁRIO DE CONTATO ---
  if (contactForm) {
-  contactForm.action = "https://formsubmit.co/proeng.seg@gmail.com";
+  contactForm.action = "https://formsubmit.co/tiagopimenta.ata@gmail.com";
   contactForm.method = "POST";
   contactForm.addEventListener("submit", function (event) {
    event.preventDefault();
